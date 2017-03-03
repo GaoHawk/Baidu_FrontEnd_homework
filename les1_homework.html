@@ -15,13 +15,13 @@
            renderer.setClearColor(0x808080)
            var scene = new THREE.Scene();
            var camera = new THREE.OrthographicCamera(-2.5,2.5,1.875,-1.875,0.1,100);
-           camera.position.set(5,5,20);
+           camera.position.set(5,10,17);
            camera.lookAt(new THREE.Vector3(0,0,0))
            scene.add(camera);
 
            //light
            var light = new THREE.DirectionalLight(0xffffff)
-           light.position.set(25,10,15);
+           light.position.set(4,5,3);
            scene.add(light);
 
            var material = new THREE.MeshLambertMaterial({
@@ -33,15 +33,27 @@
            mesh.scale.set(0.8,0.8,0.8)
            scene.add(mesh);
 
-           var torus = new THREE.Mesh(new THREE.TorusGeometry(2.5,1,14,24),new THREE.MeshLambertMaterial({
-                   color:0xffffff
+           var torus = new THREE.Mesh(new THREE.TorusGeometry(1.8,0.5,10,24),new THREE.MeshPhongMaterial({
+                   color:0xffffff,
+                   specular:0xffff00,
+                   shininess:100
               })
            );
-           torus.rotation.y = Math.PI/24*10;
-           torus.scale.set(0.12,0.12,0.12)
-           torus.position.set(0.8,-0.6,0.9)
+           torus.rotation.y = Math.PI/27*12;
+           torus.scale.set(0.2,0.2,0.2)
+           torus.position.set(0.61,-0.7,0.9)
            scene.add(torus);
 
+           var torus2 = new THREE.Mesh(new THREE.TorusGeometry(1.8,0.5,10,28),new THREE.MeshPhongMaterial({
+                   color:0xffffff,
+                   specular:0xffff00,
+                   shininess:100
+              })
+           );
+           torus2.rotation.y = Math.PI/27*12;
+           torus2.scale.set(0.2,0.2,0.2)
+           torus2.position.set(0.86,-0.7,-1.1)
+           scene.add(torus2);
            renderer.render(scene,camera);
        }
     </script>
